@@ -9,6 +9,7 @@ public class Main extends PApplet{
 PApplet p;
 
     IntList liste = new IntList();
+    IntList nyTal = new IntList();
 
     @Override
     public void settings() {
@@ -20,14 +21,26 @@ PApplet p;
             tal.append(k);
             k=k-1;
             tal(tal,k);
-            tal.shuffle();
             return tal;
         }
         else{return tal;}
     }
-    public void bongoShuffle(IntList tal,int index){
+
+    public IntList bongoShuffle(IntList tal,int k,IntList nyTal){
 
 
+
+        int c;
+        if(0<k) {
+println("Bongo");
+            c = (int)random(0,tal.size());
+            nyTal.append(tal.get(c));
+            tal.remove(c);
+            k -= 1;
+            bongoShuffle(liste, k,nyTal);
+            return nyTal;
+        }else
+return nyTal;
     }
    public void display(IntList nummer, int k) {
 
@@ -45,14 +58,15 @@ PApplet p;
     @Override
     public void setup(){
     liste =tal(liste ,10);
+   liste = bongoShuffle(liste,10,nyTal);
     println(liste);
-    display(liste,0);
+
     }
 
 
     @Override
     public void draw() {
-
+        display(liste,0);
     }
 }
 
