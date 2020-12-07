@@ -42,6 +42,23 @@ println("Bongo");
         }else
 return nyTal;
     }
+
+    public IntList bongoSwap(IntList tal,int start,int slut){
+        IntList nyTal = new IntList();
+        nyTal = tal;
+
+        println(tal);
+        int b = nyTal.get(start);
+         nyTal.set(start,tal.get(slut));
+         nyTal.set(slut,b);
+        println(tal);
+         return nyTal;
+
+
+    }
+
+
+
    public void display(IntList nummer, int k) {
 
        int num = nummer.get(k);
@@ -66,7 +83,13 @@ return nyTal;
 
     @Override
     public void draw() {
+        clear();
         display(liste,0);
+    }
+
+    @Override
+    public void mousePressed() {
+        liste =bongoSwap(liste,1,2);
     }
 }
 
