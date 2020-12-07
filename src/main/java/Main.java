@@ -57,6 +57,23 @@ return nyTal;
 
     }
 
+    public void bongoSort(IntList tal,int k) {
+        if (k > 1) {
+
+
+            if (tal.get(k-1) > tal.get(k - 2)) {
+                bongoSwap(tal, k - 1, k - 2);
+                k = 10;
+
+            } else{ k -= 1;
+                bongoSort(tal,k);
+            }
+
+        }
+    }
+
+
+
 
 
    public void display(IntList nummer, int k) {
@@ -85,11 +102,12 @@ return nyTal;
     public void draw() {
         clear();
         display(liste,0);
+
     }
 
     @Override
     public void mousePressed() {
-        liste =bongoSwap(liste,1,2);
+         bongoSort(liste,10);
     }
 }
 
