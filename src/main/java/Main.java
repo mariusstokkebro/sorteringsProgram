@@ -17,7 +17,7 @@ public class Main extends PApplet {
 
         size(500, 500);
     }
-
+//Laver listen med tal fra 1 til 10
     public static IntList tal(IntList tal, int k) {
         if (tal.size() < 10) {
             tal.append(k);
@@ -28,7 +28,7 @@ public class Main extends PApplet {
             return tal;
         }
     }
-
+//Shuffler listen så hvert tal har en random plads
     public IntList bongoShuffle(IntList tal, int k, IntList nyTal) {
 
 
@@ -44,7 +44,7 @@ public class Main extends PApplet {
         } else
             return nyTal;
     }
-
+//her bliver talene byttet rundt
     public IntList bongoSwap(IntList tal, int start, int slut) {
         IntList nyTal = new IntList();
         nyTal = tal;
@@ -58,7 +58,7 @@ public class Main extends PApplet {
 
 
     }
-
+// her blier bongoswap brugt til at gøre så talene enten bliver byttet rundt så det højeste tal ender i højre eller venstre side
     public void bongoSort(IntList tal, int k, boolean reverse) {
         if (k > 1) {
             if (reverse) {
@@ -84,7 +84,7 @@ public class Main extends PApplet {
         }
     }
 
-
+//her bliver kolonnerne tegnet
     public void display(IntList nummer, int k) {
 
         int num = nummer.get(k);
@@ -99,6 +99,7 @@ public class Main extends PApplet {
     }
 
     @Override
+    //her bliver listen lavet og shufflet
     public void setup() {
         liste = tal(liste, 10);
         liste = bongoShuffle(liste, 10, nyTal);
@@ -108,6 +109,7 @@ public class Main extends PApplet {
 
 
     @Override
+    //her bliver den tegnet
     public void draw() {
         clear();
         display(liste, 0);
@@ -115,6 +117,7 @@ public class Main extends PApplet {
     }
 
     @Override
+    //her gør vi så listen ender med den højeste i højre hvis man klikker på højre museknap og omvendt hvis man klikker på vesntre
     public void mousePressed() {
         if (mouseButton == LEFT)
             bongoSort(liste, 10, false);
