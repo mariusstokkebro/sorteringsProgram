@@ -117,7 +117,7 @@ public class Main extends PApplet {
     }
 
     @Override
-    //her gør vi så listen ender med den højeste i højre hvis man klikker på højre museknap og omvendt hvis man klikker på vesntre
+    //her gør vi så listen ender med den højeste i højre hvis man klikker på højre museknap og omvendt hvis man klikker på venstre
     public void mousePressed() {
         if (mouseButton == LEFT)
             bongoSort(liste, 10, false);
